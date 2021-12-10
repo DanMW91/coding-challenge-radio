@@ -1,5 +1,5 @@
 # Radio Player Coding Challenge
-React component based on a vanilla js coding challenge.
+Radio Player React component based on a vanilla js coding challenge. Fetches Radio info from external API
 
 Built with:
 * React JS
