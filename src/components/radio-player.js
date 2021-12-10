@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { useState } from 'react';
+import { useState, useLayoutEffect } from 'react';
 import { faPowerOff, faChevronLeft  } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import StationItem from './station-item';
@@ -69,6 +69,18 @@ const StationTitle = styled.div`
 
 const RadioPlayer = () => {
   const [stationPlaying, setStationPlaying] = useState();
+  const [radios, setRadios] = useState()
+
+  const fetchRadioStations = async () => {
+    const response = await fetch('https://teclead.de/recruiting/radios')
+    const result = await response.json();
+    console.log(result.radios)
+    setRadios(result.radios)
+  }
+
+  useLayoutEffect(() => {
+    fetchRadioStations()
+  }, [])
 
   const selectStationHandler = (stationName) => {
     setStationPlaying(stationName)
@@ -82,11 +94,10 @@ const RadioPlayer = () => {
         <FontAwesomeIcon icon={faPowerOff}/>
       </HeaderDiv>
       <StationsContainer>
-        <StationItem name={'Putin FM'} station={'66.6'} activeStation={stationPlaying} onSelectStation={selectStationHandler}/>
-        <StationItem name={'Dribble'} station={'101.2'} activeStation={stationPlaying} onSelectStation={selectStationHandler}/>
-        <StationItem name={'Doge FM'} station={'99.4'} activeStation={stationPlaying} onSelectStation={selectStationHandler}/>
-        <StationItem name={'Ballads FM'} station={'87.1'} activeStation={stationPlaying} onSelectStation={selectStationHandler}/>
-        <StationItem name={'Maximum FM'} station={'142.2'} activeStation={stationPlaying} onSelectStation={selectStationHandler}/>
+        {radios &&
+        radios.map((radio)=> {
+          return <StationItem name={radio.name} station={radio.frequency} activeStation={stationPlaying} onSelectStation={selectStationHandler}/>
+        })}
       </StationsContainer>
       <FooterDiv>
         {stationPlaying &&
