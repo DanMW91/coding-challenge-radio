@@ -80,11 +80,11 @@ const RadioPlayer = () => {
         <FontAwesomeIcon icon={faPowerOff}/>
       </HeaderDiv>
       <StationsContainer>
-        <StationItem name={'Putin FM'} station={'66.6'}/>
-        <StationItem name={'Dribble'} station={'101.2'}/>
-        <StationItem name={'Doge FM'} station={'99.4'}/>
-        <StationItem name={'Ballads FM'} station={'87.1'}/>
-        <StationItem name={'Maximum FM'} station={'142.2'}/>
+        <StationItem name={'Putin FM'} station={'66.6'} activeStation={stationPlaying} onSelectStation={selectStationHandler}/>
+        <StationItem name={'Dribble'} station={'101.2'} activeStation={stationPlaying} onSelectStation={selectStationHandler}/>
+        <StationItem name={'Doge FM'} station={'99.4'} activeStation={stationPlaying} onSelectStation={selectStationHandler}/>
+        <StationItem name={'Ballads FM'} station={'87.1'} activeStation={stationPlaying} onSelectStation={selectStationHandler}/>
+        <StationItem name={'Maximum FM'} station={'142.2'} activeStation={stationPlaying} onSelectStation={selectStationHandler}/>
       </StationsContainer>
       <FooterDiv>
         {stationPlaying &&

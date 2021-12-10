@@ -1,5 +1,7 @@
 import {useState} from 'react'
 import styled from 'styled-components';
+import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const StyledStationItem = styled.div`
   display:flex;
@@ -18,7 +20,12 @@ const StationItem = (props) => {
 
   return (
     <>
-      <StyledStationItem>
+      <StyledStationItem onClick={()=> {
+        props.onSelectStation(props.name)
+        setSelected(true)}
+        }>
+        {selected && props.activeStation === props.name &&
+        <FontAwesomeIcon icon={faPlusCircle}/>}
         <div>{props.name}</div>
         <div>{props.station}</div>
       </StyledStationItem>
