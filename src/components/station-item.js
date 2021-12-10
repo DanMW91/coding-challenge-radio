@@ -1,4 +1,3 @@
-import {useState} from 'react'
 import styled from 'styled-components';
 import radioImage from "./../assets/spaceman.jpg";
 import { faPlusCircle, faMinusCircle } from "@fortawesome/free-solid-svg-icons";
@@ -16,7 +15,6 @@ const StyledStationItem = styled.div`
   &:hover {
     cursor:pointer;
   }
-
 `
 
 const StationInfo = styled.div`

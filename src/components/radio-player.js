@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { useState, useLayoutEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { faPowerOff, faChevronLeft  } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import StationItem from './station-item';
@@ -74,11 +74,10 @@ const RadioPlayer = () => {
   const fetchRadioStations = async () => {
     const response = await fetch('https://teclead.de/recruiting/radios')
     const result = await response.json();
-    console.log(result.radios)
     setRadios(result.radios)
   }
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     fetchRadioStations()
   }, [])
 
