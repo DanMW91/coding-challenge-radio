@@ -13,6 +13,9 @@ const StyledStationItem = styled.div`
   border-bottom: 1px solid grey;
   color: rgb(113,120,136);
   font-weight: bold;
+  &:hover {
+    cursor:pointer;
+  }
 
 `
 

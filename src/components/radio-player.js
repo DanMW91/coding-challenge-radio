@@ -15,6 +15,8 @@ const RadioPlayerContainer = styled.div`
   background-color: rgb(45,45,55);
   border-radius: 15px;
   overflow: hidden;
+  margin-left: 200px;
+  margin-top: 100px;
 
 `
 
