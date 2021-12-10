@@ -43,14 +43,11 @@ const RadioImage = styled.img`
 `
 
 const StationItem = (props) => {
-  const [selected, setSelected] = useState(false)
 
   return (
       <StyledStationItem onClick={()=> {
-        props.onSelectStation(props.name)
-        setSelected(true)}
-        }>
-        {selected && props.activeStation === props.name &&
+        props.onSelectStation(props.name)}}>
+        {props.activeStation === props.name &&
         <StationDetail>
           <FontAwesomeIcon icon={faMinusCircle}/>
             <RadioImage src={radioImage}/>
