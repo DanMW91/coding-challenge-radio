@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { useState, useEffect } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import { faPowerOff, faChevronLeft  } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import StationItem from './station-item';
@@ -98,7 +99,7 @@ const RadioPlayer = () => {
       <StationsContainer>
         {radios &&
         radios.map((radio)=> {
-          return <StationItem name={radio.name} station={radio.frequency} activeStation={stationPlaying} onSelectStation={selectStationHandler}/>
+          return <StationItem key={uuidv4()} name={radio.name} station={radio.frequency} activeStation={stationPlaying} onSelectStation={selectStationHandler}/>
         })}
       </StationsContainer>
       <FooterDiv>
