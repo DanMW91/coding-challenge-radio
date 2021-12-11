@@ -73,6 +73,9 @@ const RadioPlayer = () => {
 
   const fetchRadioStations = async () => {
     const response = await fetch('https://teclead.de/recruiting/radios')
+
+    if(!response.ok) throw new Error(response.error)
+
     const result = await response.json();
     setRadios(result.radios)
   }
