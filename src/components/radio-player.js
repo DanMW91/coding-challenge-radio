@@ -83,7 +83,9 @@ const RadioPlayer = () => {
   }, []);
 
   const selectStationHandler = (stationName) => {
-    setStationPlaying(stationName);
+    stationName === stationPlaying
+      ? setStationPlaying("")
+      : setStationPlaying(stationName);
   };
 
   return (
